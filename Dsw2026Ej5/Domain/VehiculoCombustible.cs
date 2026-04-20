@@ -28,6 +28,14 @@ public class VehiculoCombustible: Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kilometrosPorLitro;
+        double consumo = kilometros / kilometrosPorLitro;
+        double distancia = kilometros / 15;
+
+        if (this.GetAnio() < 2021)
+        {
+            consumo += litrosExtra * distancia;
+        }
+
+        return consumo;
     }
 }
